@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will You Be My Valentine? 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+       overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  animation: slideshow 18s infinite;
+    }
+
+    .container {
+  text-align: center;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.6); /* transparent */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 30px;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.2s;
+    }
+
+    #yesBtn {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    #yesBtn:hover {
+      transform: scale(1.1);
+    }
+
+    #noBtn {
+      background-color: #adb5bd;
+      color: white;
+      position: absolute;
+    }
+
+    /* Popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      animation: pop 0.5s ease;
+    }
+
+    .popup-content img {
+      width: 150px;
+      border-radius: 15px;
+      margin: 10px;
+    }
+
+    @keyframes slideshow {
+  0% {
+    background-image: url("img1.jpeg");
+  }
+  23% {
+    background-image: url("img7.jpeg");
+  }
+  33% {
+    background-image: url("img3.jpeg");
+  }
+  66% {
+    background-image: url("img4.jpeg");
+  }
+  100% {
+    background-image: url("img8.jpeg");
+  }
+}
+
+    @keyframes pop {
+      0% { transform: scale(0); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Vishuu..</h1>
+    <h1>Will you be my Valentine? 💘</h1>
+    <button id="yesBtn">Yes 💖</button>
+    <button id="noBtn">No 😢</button>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h1>Yayyyy!!! 💕🥰</h1>
+      <p>I knew you’d say yes billu 💞</p>
+      <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
+      <img src="https://media.giphy.com/media/l4FGpP4lxGGgK5CBW/giphy.gif">
+      <br><br>
+    <button onclick="closePopup()">Close 💖</button>
+   
+    </div>
+    
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const popup = document.getElementById("popup");
+
+    // Move NO button on hover
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * (window.innerWidth - noBtn.clientWidth);
+      const y = Math.random() * (window.innerHeight - noBtn.clientHeight);
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    });
+
+    // YES button action
+    yesBtn.addEventListener("click", () => {
+      popup.style.display = "flex";
+    });
+
+    function closePopup() {
+  document.getElementById("popup").style.display = "none";
+  document.getElementById("rightPanel").style.visibility = "visible";
+}
+  </script>
+
+</body>
+</html>
